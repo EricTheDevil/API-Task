@@ -1,13 +1,17 @@
 const express = require("express");
-
 const router = express.Router();
 
-router.get("/posts", (req, res) => {
-  res.send("We are on posts");
-});
+let data = [{ message: "Ping" }];
 
-router.get("/specific", (req, res) => {
-  res.send("specific post");
+// GET
+router.get("/", (req, res) => {
+  res.send(data);
+});
+//
+router.post("/", (req, res) => {
+  let postData = req.body;
+  if (postData.message === "Ping") data = [{ message: "Pong" }];
+  res.send(data);
 });
 
 module.exports = router;
