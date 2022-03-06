@@ -5,6 +5,7 @@ let data = [{ message: "Ping" }];
 
 // GET
 router.get("/", (req, res) => {
+  data = [{ message: "Ping" }]
   res.send(data);
 });
 //
